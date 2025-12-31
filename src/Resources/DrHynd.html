@@ -1,13 +1,58 @@
-﻿@{
-    ViewBag.Title = "Ministeries";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+        /* used to include html files within other html files */    
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /*loop through a collection of all HTML elements:*/
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                /*make an HTTP request using the attribute value as the file name:*/
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                    if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                    if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                    /*remove the attribute, and call this function once more:*/
+                    elmnt.removeAttribute("w3-include-html");
+                    includeHTML();
+                    }
+                }      
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /*exit the function:*/
+                return;
+                }
+            }
+        };
+    </script>       
+</head>
+
+<body>
+<div class="navbar navbar-inverse "><div w3-include-html="../NavMenuHTML.html""></div></div>
+<div class="container body-content">
 
 <div class="row">
     <div class="col-md-12">
         <div align="justify" id="content">
             <h2>Footprints on African Hearts and Lands: The Life and Work of Dr. Samuel W. Hynd</h2>
 
-            <img src="~/Content/Images/DrSamuelHyndBook.jpg" style="width:80%">
+            <img src="/src/Images/DrSamuelHyndBook.jpg" style="width:80%">
             <h4>A story of one man’s life that will challenge your faith and service to God.</h4>
             <p>
                 The life of Dr. Samuel Wilson Hynd has been devoted to the care of the people of the Kingdom of Swaziland. In this tiny landlocked country he has battled malaria, leprosy, tuberculosis, HIV/AIDS, and multiple other diseases for most of his 90 years of life. Not only has this amazing servant of God treated the subjects of the Kingdom of Swaziland, but he has served the Government of Swaziland as Minister of Health and acted as personal physician to two Kings and the Royal family. He has fought against poverty, injustice, drug, alcohol and smoking abuse. He has given his resources and mobilized other s to give likewise for evangelistic crusades, training pastors, teachers, youth leaders, counselors, and others in ministry as well as for youth outreaches, children’s evangelism, and the building churches, schools, and health facilities. He has contributed his finances and his time to rescue and treat orphans found in the most dire circumstances and need. They have become his adopted grandchildren. Such is his expertise and dedication that the King of Swaziland, Queen Elizabeth II, and every organization he served have all bestowed awards upon him.
@@ -32,6 +77,24 @@
         </div>*@
         </div>
 </div>
+</div>
+</body>
+    <script>
+        includeHTML();
+        $(function () {
+            $('.pop').on('click', function () {
+                var imgsrc = $(this).find('img').attr('src');
+                $('#imagepreview').attr('src', imgsrc);
+                var imgVal = $(this).find('img').attr('data-val');
+                $('#modaldata').html(imgVal);
 
+
+                $('#imagemodal').modal('show');
+            });
+        });
+    </script>
+
+
+</html>
 
 
