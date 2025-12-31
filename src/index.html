@@ -1,17 +1,113 @@
-<!DOCTYPE html>
-<html lang="en">
-
+﻿<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /*loop through a collection of all HTML elements:*/
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                /*make an HTTP request using the attribute value as the file name:*/
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                    if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                    if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                    /*remove the attribute, and call this function once more:*/
+                    elmnt.removeAttribute("w3-include-html");
+                    includeHTML();
+                    }
+                }      
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /*exit the function:*/
+                return;
+                }
+            }
+        };
+    </script>       
 </head>
 
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
-</body>
+<div class="navbar navbar-inverse "><div w3-include-html="NavMenuHTML.html""></div></div>
 
+<div class="container body-content">
+<div class="row">
+    <div class="col-md-4">
+        <h2>Welcome to the official website for New Hope Centre</h2>
+        <p>
+            The New Hope Centre provides hope for the future in a nation that is dessimated by HIV/AIDS. Our mission is to provide a permanent home for orphaned and abandoned children in Swaziland, and to raise these children with love, education and a Biblical foundation, so that they are ready to lead Swaziland out of these difficult times and into a bright and safe future.
+        </p>
+        <img src="Images/nhc-side.jpg">
+        
+        <p><a href="AboutUs.html">About Us</a></p>
+    </div>
+
+    <div class="col-md-4">
+        <h2>What's New - Check Out Recent <a href="WhatsNew/RecentBlogs.cshtml">Posts</a></h2>
+
+        <p>The storage container from Canada got a creative facelift and has a touch from everyone!</p>
+        <h5>September 2021</h5>
+        <div class="thumbnail">
+            <img src="Images/Blogs/Storage_Container.jpg" />
+        </div>
+        </div>
+
+        <div class="col-md-4">
+            <h2>Informative Books</h2>
+            <div class="col-md-8">
+                <div class="thumbnail">
+                    <img src="Images/a little child shall lead them.jpg" class="img-responsive" style="width:100%">
+                </div>
+                <p><a href="Resources/aLittleChild.html">A Little Child ... </a></p>
+                <div class="col-md-8">
+                    <div class="thumbnail">
+                        <img src="Images/DrSamuelHyndBook.jpg" class="img-responsive" style="width:100%">
+                </div>
+                            <p>Looking for a heart-felt way to share our story? Why not order copies of this book for family and friends. Visit the Resources page. </p>
+            <p><a href="Resources/DrHynd.html">Footprints ...</a></p>
+            </div>
+
+
+        </div>
+    </div>
+
+
+        <hr />
+        <footer>
+            <p>&copy; 2025 - New Hope Swaziland</p>
+        </footer>
+    </div>
+
+    <script>
+        includeHTML();
+        $(function () {
+            $('.pop').on('click', function () {
+                var imgsrc = $(this).find('img').attr('src');
+                $('#imagepreview').attr('src', imgsrc);
+                var imgVal = $(this).find('img').attr('data-val');
+                $('#modaldata').html(imgVal);
+
+
+                $('#imagemodal').modal('show');
+            });
+        });
+    </script>
+
+</body>
 </html>
+
