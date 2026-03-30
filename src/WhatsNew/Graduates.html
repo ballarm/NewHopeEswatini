@@ -1,6 +1,52 @@
-﻿@{
-    ViewBag.Title = "Graduates";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+        /* used to include html files within other html files */    
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /*loop through a collection of all HTML elements:*/
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                /*make an HTTP request using the attribute value as the file name:*/
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                    if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                    if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                    /*remove the attribute, and call this function once more:*/
+                    elmnt.removeAttribute("w3-include-html");
+                    includeHTML();
+                    }
+                }      
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /*exit the function:*/
+                return;
+                }
+            }
+        };
+    </script>       
+</head>
+
+<body>
+<div class="navbar navbar-inverse "><div w3-include-html="../NavMenuHTML.html""></div></div>
+<div class="container body-content">
+<div class="row">
 
 
 <h4>Graduates</h4>
@@ -13,14 +59,14 @@
         <h2>Deborah Abraham</h2>
         <h5>August 25 2023</h5>
         <p>Bachelor of Arts in Bible and Theology for Eswatini College of Theology</p>
-    <img height="400" src="~/Content/Images/Blogs/DeborahPreacher.jpg" />
+    <img height="400" src="/src/Images/Blogs/DeborahPreacher.jpg" />
 
 
     <hr />
     <h2>Naomi Graduates</h2>
     <h5>August 25 2023</h5>
 
-    <img height="400" src="~/Content/Images/Blogs/NaomiCatering.jpg" />
+    <img height="400" src="/src/Images/Blogs/NaomiCatering.jpg" />
 
 
 
@@ -31,7 +77,7 @@
     <p>
         Annah beginning her articles on September 1 at the Attorney General Office in Mbabane (our capital city). Annah completed her LLB law degree this year. Annah is one of our very first children to ever sleep in New Hope Centre Timber House (the wooden ark saving a generation from a flood of despair disease and death). We celebrated on Friday September 1, 2023 our twentieth anniversary since Annah, Deborah and Joel who slept their first night in a brand new, brightly painted sparkling clean Main House that could accommodate 30 children. On the very day, Friday September 1, 2023 she went to work for her first day in the capital city, Mbabane at the Attorney General, beginning her qualifying articles.  To God be the glory, and to her sponsors over the years who gave great bundles and bundles of love; especially Heather Stevens who searched for others to join in sponsorship until Annah has finally set her feet on the path of her destiny professionally.
     </p>
-    <img height="400" src="~/Content/Images/Blogs/AnnahArticles.jpg" />
+    <img height="400" src="/src/Images/Blogs/AnnahArticles.jpg" />
 
 
 
@@ -41,10 +87,32 @@
     <p>
         Joel Abraham today fully qualified as a drone and commercial pilot. Last Friday afternoon touched down on Nelspruit airport runway having passed all his theory, all his flights, all the night ratings and a drone license: a qualified licensed commercial pilot, his dream since he was five years old.
     </p>
-    <img height="400" src="~/Content/Images/Blogs/IMG-20230830-WA0000.jpg" />
+    <img height="400" src="/src/Images/Blogs/IMG-20230830-WA0000.jpg" />
 
     <hr />
     
 </div>
+<footer>
+            <p>&copy; 2026 - New Hope Swaziland</p>
+        </footer>
+    </div>
+</body>
+    <script>
+        includeHTML();
+        $(function () {
+            $('.pop').on('click', function () {
+                var imgsrc = $(this).find('img').attr('src');
+                $('#imagepreview').attr('src', imgsrc);
+                var imgVal = $(this).find('img').attr('data-val');
+                $('#modaldata').html(imgVal);
+
+
+                $('#imagemodal').modal('show');
+            });
+        });
+    </script>
+
+
+</html><!DOCTYPE html>
 
 

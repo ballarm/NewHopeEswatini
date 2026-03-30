@@ -1,6 +1,52 @@
-﻿@{
-    ViewBag.Title = "Recent Blogs";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /*loop through a collection of all HTML elements:*/
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                /*make an HTTP request using the attribute value as the file name:*/
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                    if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                    if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                    /*remove the attribute, and call this function once more:*/
+                    elmnt.removeAttribute("w3-include-html");
+                    includeHTML();
+                    }
+                }      
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /*exit the function:*/
+                return;
+                }
+            }
+        };
+    </script>       
+</head>
+
+<body>
+<div class="navbar navbar-inverse "><div w3-include-html="../NavMenuHTML.html""></div></div>
+
+<div class="container body-content">
+<div class="row">
 
 
 <h4>Christmas 2023</h4>
@@ -10,16 +56,16 @@
         <div class="row">
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0010.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0010.jpg" />
                     <p>Nilsa first Christmas with us aged 15 months</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
-                <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0011.jpg" />
+                <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0011.jpg" />
                 <p>Samuel home from YMAW Hawaii</p><br />
             </div>
             <div class="col-sm-4">
-                <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0012.jpg" />
+                <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0012.jpg" />
                 <p>Benjamin aged 8</p><br />
             </div>
         </div>
@@ -27,20 +73,20 @@
         <div class="row">
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0013.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0013.jpg" />
                     <p>Titus home for Christmas while working in agriculture project in southern Eswatini</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0014.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0014.jpg" />
                     <p>Moriah in Bethany Primary School working towards her seventh grade national certificate</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
                     <div>
-                        <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0015.jpg" />
+                        <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0015.jpg" />
                         <p>Jedidah home for the holidays from KZN where shi is in youth ministries with Africa Enterprise, travelling throughout Southern Africa preaching, teaching and sharing the love and mercy of God though Kin Jesus.</p><br />
 
                     </div>
@@ -53,19 +99,19 @@
 
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0016.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0016.jpg" />
                     <p>Sakani just turned three</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0017.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0017.jpg" />
                     <p>Miriam home for the holidays from Johannesburg, where she is in Fashion Design School</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0018.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0018.jpg" />
                     <p>Hannaniah the pianist and our first born of the triples</p><br />
                 </div>
             </div>
@@ -73,19 +119,19 @@
         <div class="row">
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0019.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0019.jpg" />
                     <p>Keziah home for the holidays having graduated in catering and decor and now training in management of a guest house</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0020.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0020.jpg" />
                     <p>Misheal the middle born of the triplets, dances a solo to the worship song NOEL</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0021.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0021.jpg" />
                     <p>James home for the holidays after serviing as a swim coach in Mbabane, and was headed to Israel to join a youth team planing trees on October 10, but flights were suspended</p><br />
                 </div>
             </div>
@@ -93,20 +139,20 @@
         <div class="row">
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0022.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0022.jpg" />
                     <p>Huldah just turned 18</p><br />
                 </div>
             </div>
 
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0023.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0023.jpg" />
                     <p>Keturah is wonderful, caring for cows and the new baby calf called Hannakah</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0024.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0024.jpg" />
                     <p>Lwazi joined us a couple of weeks ago from his homstead in northern Eswatini</p><br />
                 </div>
             </div>
@@ -114,19 +160,19 @@
         <div class="row">
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0025.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0025.jpg" />
                     <p>Sharon the delight of the evening</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0026.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0026.jpg" />
                     <p>Hepzihah turned 18 this past week, and is completeing grad 12 using GED online, and searching for an open door into the airline industry</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0028.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0028.jpg" />
                     <p>John the mighty lion of the Kingdom of God in the Kingdom of Eswatini, back from volunteering in the USA</p><br />
                 </div>
             </div>
@@ -134,19 +180,19 @@
         <div class="row">
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0029.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0029.jpg" />
                     <p>Gogo Katie in her 80s, our precious neighbour</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0031.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0031.jpg" />
                     <p>Apphia the linguist, artist, dancer, poem writer and lover of animals. She is striving for excellence to study as a veterninarian</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0038.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0038.jpg" />
                     <p>Chloe studying at International Develoment Management while at night serviing as lead caregiver to the younger Abrahams</p><br />
                 </div>
             </div>
@@ -154,19 +200,19 @@
         <div class="row">
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0039.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0039.jpg" />
                     <p>Naomi, a graduate in catering and decor, and now serving as a caregiver with the youngest in the house</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0041.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0041.jpg" />
                     <p>Meet Blessing</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0042.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0042.jpg" />
                     <p>Miriam, Priscilla and Moriah serving Jesus Birthday Cake</p><br />
                 </div>
             </div>
@@ -174,19 +220,19 @@
         <div class="row">
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0043.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0043.jpg" />
                     <p>One of many Family Photos</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0044.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0044.jpg" />
                     <p>Misheal</p><br />
                 </div>
             </div>
             <div class="col-sm-4">
                 <div>
-                    <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0045.jpg" />
+                    <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0045.jpg" />
                     <p>Sharon and Karen</p><br />
                 </div>
             </div>
@@ -194,10 +240,36 @@
         <div class="row">
                 <div class="col-sm-4">
                     <div>
-                        <img height="400" src="~/Content/Images/Blogs/IMG-20231226-WA0046.jpg" />
+                        <img height="400" src="/SRC/Images/Blogs/IMG-20231226-WA0046.jpg" />
                         <p>Christmas worship dance team</p><br />
                     </div>
                 </div>
         </div>
     </div>
     
+</div>
+        
+
+        <hr />
+        <footer>
+            <p>&copy; 2025 - New Hope Swaziland</p>
+        </footer>
+    </div>
+
+    <script>
+    includeHTML();
+    $(function () {
+        $('.pop').on('click', function () {
+            var imgsrc = $(this).find('img').attr('src');
+            $('#imagepreview').attr('src', imgsrc);
+            var imgVal = $(this).find('img').attr('data-val');
+            $('#modaldata').html(imgVal);
+
+
+            $('#imagemodal').modal('show');
+        });
+    });
+    </script>
+
+</body>
+</html>

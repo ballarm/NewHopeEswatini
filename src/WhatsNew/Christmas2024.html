@@ -1,7 +1,52 @@
-﻿@{
-    ViewBag.Title = "Christmas";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+        /* used to include html files within other html files */    
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /*loop through a collection of all HTML elements:*/
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                /*make an HTTP request using the attribute value as the file name:*/
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                    if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                    if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                    /*remove the attribute, and call this function once more:*/
+                    elmnt.removeAttribute("w3-include-html");
+                    includeHTML();
+                    }
+                }      
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /*exit the function:*/
+                return;
+                }
+            }
+        };
+    </script>       
+</head>
+
+<body>
+<div class="navbar navbar-inverse "><div w3-include-html="../NavMenuHTML.html"></div></div>
+<div class="container body-content">
+<div class="row">
 
 
 
@@ -16,12 +61,12 @@
         All the earth rejoices and all creation bows down in love, joy, peace, adoration</br>
         HEAVEN ON EARTH</br>
     </p>
-    <img height="300" src="~/Content/Images/Xmas2024/Xmas01.jpg" />
+    <img height="300" src="/src/Images/Xmas2024/Xmas01.jpg" />
 
     <hr />
     <h2>Christmas Beyond New Hope Centre in Eswatini</h2>
 
-    <img height="400" src="~/Content/Images/Fall2024/Beyond.jpg" />
+    <img height="400" src="/src/Images/Fall2024/Beyond.jpg" />
 
     <hr />
     <h2>Christmas Dinner at Elwandle Guest House</h2>
@@ -29,10 +74,10 @@
         Keziah and Sakani Abraham host Christmas Dinner at Elwandle Guest House extending the circle of joy peace and love from the Abrahams to Eswatini!
     </p>
 
-    <img height="300" src="~/Content/Images/Fall2024/Elwandle01.jpg" />
-    <img height="300" src="~/Content/Images/Fall2024/Elwandle02.jpg" />
-    <img height="300" src="~/Content/Images/Fall2024/Elwandle03.jpg" />
-    <img height="300" src="~/Content/Images/Fall2024/Elwandle04.jpg" />
+    <img height="300" src="/src/Images/Fall2024/Elwandle01.jpg" />
+    <img height="300" src="/src/Images/Fall2024/Elwandle02.jpg" />
+    <img height="300" src="/src/Images/Fall2024/Elwandle03.jpg" />
+    <img height="300" src="/src/Images/Fall2024/Elwandle04.jpg" />
 
     <hr />
     <h2>Appreciation from pastor Sandra and her family from Sweden</h2>
@@ -40,14 +85,14 @@
         Such joy in every corner. Vendela was very hesitant to come but really really enjoyed it like the rest of us. Thank you so very much for everything!!! Never the least of the generous gift that was highly highly appreciated !! We will carry this night in our hearts the rest of our lives. We are truly blessed! Bless you and a big hug to everyone!
     </p>
 
-    <img height="400" src="~/Content/Images/Fall2024/Sandra.jpg" />
+    <img height="400" src="/src/Images/Fall2024/Sandra.jpg" />
 
 
 
 
     <hr />
     <h4>Christmas Eve</h4>
-    <img height="300" src="~/Content/Images/Xmas2024/Xmas02.jpg" />
+    <img height="300" src="/src/Images/Xmas2024/Xmas02.jpg" />
     <p>
         Christmas Eve and the gifts are beautifully prepared by JEMIMAH n hannaniah n SLINDILE, the tabernacle is created into a delight of glory in gold and salvation in red in honor of the birth of Jesus King of Glory warrior establishing peace n goodwill on earth
     </p>
@@ -55,8 +100,8 @@
 
     <hr />
     <h4>Advent Candles</h4>
-    <img height="300" src="~/Content/Images/Xmas2024/Xmas04.jpg" />
-    <img height="400" src="~/Content/Images/Xmas2024/Xmas05.jpg" />
+    <img height="300" src="/src/Images/Xmas2024/Xmas04.jpg" />
+    <img height="400" src="/src/Images/Xmas2024/Xmas05.jpg" />
     <p>
         The four advent candles are lit as we proclaim the imminent day of commemoration … guests arrive and bubbles of laughter chatter greeting and happiness all over.
     </p>
@@ -64,79 +109,79 @@
 
     <hr />
     <h4>Dinner is Served</h4>
-    <img height="300" src="~/Content/Images/Xmas2024/Xmas06.jpg" />
-    <img height="300" src="~/Content/Images/Xmas2024/Xmas07.jpg" />
+    <img height="300" src="/src/Images/Xmas2024/Xmas06.jpg" />
+    <img height="300" src="/src/Images/Xmas2024/Xmas07.jpg" />
     <p>
         Dinner is served and the serving team keturah Azariah JEMIMAH and Hepzibah are ready … Christmas dinner of chicken n stuffing n mashed potatoes n roast mixed vegetables n cole slaw n gravy n Portuguese rolls. Special thanks to Rev William and Sue Dishon in USA for their thoughtful and generous donation; thanks to Cyril fox and family in Australia for blessing this event with provisions; Mollie and David Lourens in eswatini and Caleb Abraham from USA
     </p>
     <video controls="controls">
-        <source src="~/Content/Images/Xmas2024/Dinner.mp4" type="video/mp4" />
+        <source src="/src/Images/Xmas2024/Dinner.mp4" type="video/mp4" />
     </video>
 
 
 
     <hr />
     <h4>Pastor Sandra and Pastor Andreas</h4>
-    <img height="300" src="~/Content/Images/Xmas2024/Xmas10.jpg" />
-    <img height="300" src="~/Content/Images/Xmas2024/Xmas08.jpg" />
-    <img height="300" src="~/Content/Images/Xmas2024/Xmas09.jpg" />
+    <img height="300" src="/src/Images/Xmas2024/Xmas10.jpg" />
+    <img height="300" src="/src/Images/Xmas2024/Xmas08.jpg" />
+    <img height="300" src="/src/Images/Xmas2024/Xmas09.jpg" />
     <p>
         Pastor Sandra and pastor Andreas with Karen who was baptized earlier this month at Thembelisha new Hope church in Manzini.
     </p>
 
 
     </br>
-    <img height="400" src="~/Content/Images/Xmas2024/Xmas11.jpg" />
+    <img height="400" src="/src/Images/Xmas2024/Xmas11.jpg" />
     <p>
         Jedidah Jewel Abraham ready to serve the kingdom of God  in the Kingdom of Eswatini watch this sign n wonder.
     </p>
     </br>
-    <img height="400" src="~/Content/Images/Xmas2024/Xmas12.jpg" />
+    <img height="400" src="/src/Images/Xmas2024/Xmas12.jpg" />
     <p>
         Red velvet cake for the king of kings birthday. The Kings throne of gold is ready for Him at Bethany Mountain.
     </p>
     </br>
-    <img height="400" src="~/Content/Images/Xmas2024/Xmas13.jpg" />
+    <img height="400" src="/src/Images/Xmas2024/Xmas13.jpg" />
     <p>
         Hannaniah the co master of ceremonies for the evening and co writer and director of zChristmas Drama 2024.
     </p>
     @*</br>
-    <img height="400" src="~/Content/Images/Xmas2024/Xmas14.jpg" />*@
+    <img height="400" src="/src/Images/Xmas2024/Xmas14.jpg" />*@
     </br>    </br>
     <video width="320" height="240" controls="controls">
-        <source src="~/Content/Images/Xmas2024/Hanna.mp4" type="video/mp4" />
+        <source src="/src/Images/Xmas2024/Hanna.mp4" type="video/mp4" />
     </video>
     <p>
         Hannaniah opens the evening celebrations with piano solo THE FIRST NOEL THE ANGELS  DID SING WAS TO CERTAIN. POOR SHEPHERDS IN FIELDS…
     </p>
     </br>
-    <img height="400" src="~/Content/Images/Xmas2024/Xmas15a.jpg" />
+    <img height="400" src="/src/Images/Xmas2024/Xmas15a.jpg" />
     <p>
         Mary and Joseph travel 100 km from Nazareth to Bethlehem, the House of Bread, the City of David
     </p>
     </br>
     </br>
     <video width="320" height="240" controls="controls">
-        <source src="~/Content/Images/Xmas2024/Pagent01Short.mp4" type="video/mp4" />
+        <source src="/src/Images/Xmas2024/Pagent01Short.mp4" type="video/mp4" />
     </video>
     </br>
     </br>
     <video width="320" height="240" controls="controls">
-        <source src="~/Content/Images/Xmas2024/Pagent02.mp4" type="video/mp4" />
+        <source src="/src/Images/Xmas2024/Pagent02.mp4" type="video/mp4" />
     </video>
     </br>
     </br>
     <video width="320" height="240" controls="controls">
-        <source src="~/Content/Images/Xmas2024/Pagent03Short.mp4" type="video/mp4" />
+        <source src="/src/Images/Xmas2024/Pagent03Short.mp4" type="video/mp4" />
     </video>
     </br>
     </br>
     <video width="320" height="240" controls="controls">
-        <source src="~/Content/Images/Xmas2024/Pagent04.mp4" type="video/mp4" />
+        <source src="/src/Images/Xmas2024/Pagent04.mp4" type="video/mp4" />
     </video>
     
     </br>
-    <img height="400" src="~/Content/Images/Xmas2024/Xmas16.jpg" />
+    <img height="400" src="/src/Images/Xmas2024/Xmas16.jpg" />
 
     <p>
         Benjamin lighting the Jesus Candle IT IS CHRISTMAS IN AFRICA
@@ -144,4 +189,23 @@
 
 </div>
 
+</div>
+</body>
+    <script>
+        includeHTML();
+        $(function () {
+            $('.pop').on('click', function () {
+                var imgsrc = $(this).find('img').attr('src');
+                $('#imagepreview').attr('src', imgsrc);
+                var imgVal = $(this).find('img').attr('data-val');
+                $('#modaldata').html(imgVal);
+
+
+                $('#imagemodal').modal('show');
+            });
+        });
+    </script>
+
+
+</html>
 

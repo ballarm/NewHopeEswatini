@@ -1,6 +1,52 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+        /* used to include html files within other html files */    
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /*loop through a collection of all HTML elements:*/
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                /*make an HTTP request using the attribute value as the file name:*/
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                    if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                    if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                    /*remove the attribute, and call this function once more:*/
+                    elmnt.removeAttribute("w3-include-html");
+                    includeHTML();
+                    }
+                }      
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /*exit the function:*/
+                return;
+                }
+            }
+        };
+    </script>       
+</head>
+
+<body>
+<div class="navbar navbar-inverse "><div w3-include-html="NavMenuHTML.html""></div></div>
+<div class="container body-content">
+<div class="row">
 
 
 <h4>Postal Address:</h4>
@@ -35,9 +81,28 @@
 
 
 
+<footer>
+            <p>&copy; 2026 - New Hope Swaziland</p>
+        </footer>
+    </div>
+
+    <script>
+        includeHTML();
+        $(function () {
+            $('.pop').on('click', function () {
+                var imgsrc = $(this).find('img').attr('src');
+                $('#imagepreview').attr('src', imgsrc);
+                var imgVal = $(this).find('img').attr('data-val');
+                $('#modaldata').html(imgVal);
 
 
+                $('#imagemodal').modal('show');
+            });
+        });
+    </script>
 
+    </div>
 
-
+</body>
+</html>
 

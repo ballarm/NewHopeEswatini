@@ -1,7 +1,52 @@
-﻿@{
-    ViewBag.Title = "Recent Blogs";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+        /* used to include html files within other html files */    
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /*loop through a collection of all HTML elements:*/
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                /*make an HTTP request using the attribute value as the file name:*/
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                    if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                    if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                    /*remove the attribute, and call this function once more:*/
+                    elmnt.removeAttribute("w3-include-html");
+                    includeHTML();
+                    }
+                }      
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /*exit the function:*/
+                return;
+                }
+            }
+        };
+    </script>       
+</head>
+
+<body>
+<div class="navbar navbar-inverse "><div w3-include-html="NavMenuHTML.html""></div></div>
+<div class="container body-content">
+<div class="row">
 
 <h4>Recent Blogs</h4>
 
@@ -14,7 +59,7 @@
     <p>
         Rachael Holt and Micah Ward wedding will be in Australia for her family and then agina in the USA for his family.
     </p>
-    <img height="400" src="~/Content/Images/Blogs/Rachel.jpeg" />
+    <img height="400" src="/src/Images/Blogs/Rachel.jpeg" />
 
 
 
@@ -23,7 +68,7 @@
 
 
     <a href="https://youtu.be/1EqfqwRGbjg">
-        <img height="400" src="~/Content/Images/Blogs/EthanComposition.PNG" />
+        <img height="400" src="/src/Images/Blogs/EthanComposition.PNG" />
     </a>
     <a href="https://youtu.be/1EqfqwRGbjg">
         Youtube Link
@@ -32,17 +77,17 @@
     <h2>THE RETURN. A call to prayer for Southern Africa and particularly South Africa.</h2>
     <h5>October 12 2024</h5>
     <p>Today on Yom Kippur four of us are at THE RETURN. A call to prayer for Southern Africa and particularly South Africa.</p>
-    <img height="400" src="~/Content/Images/Blogs/TheReturn.jpeg" /></br>
-    <img height="400" src="~/Content/Images/Blogs/TheReturn2.jpeg" />
+    <img height="400" src="/src/Images/Blogs/TheReturn.jpeg" /></br>
+    <img height="400" src="/src/Images/Blogs/TheReturn2.jpeg" />
 
 
     <hr />
     <h2>Firefox Team in Eswatini</h2>
     <h5>October 26 2024</h5>
     <p>FOXFIRE TEAM IN ESWATINI for these two weeks.. setting ablaze hearts and lives with the light of the world, the spirit of God that raised Jesus from the dead … as Samsons foxes with tails on fire set ablaze the Philistines harvest fields in ancient times may the live joy testimony revelation of these young people including Jedidah set ablaze the live joy and glory of God throughout the Kingdom of eswatini</p>
-    <video height="400" controls="controls">
-        <source src="~/Content/Videos/Firefox.mp4" type="video/mp4" />
-    </video>
+<!--     <video height="400" controls="controls">
+        <source src="/src/Videos/Firefox.mp4" type="video/mp4" />
+    </video> -->
 
 
     <hr />
@@ -50,31 +95,31 @@
     <h5>October 26 2024</h5>
 
     <p>John built the succah, led the worship, set up electric lights and the menorah candles thanks be to God for his gentle grace</p>
-    <img height="400" src="~/Content/Images/Blogs/FeastOfLambs01.jpeg" />
-    <img height="400" src="~/Content/Images/Blogs/FeastOfLambs02.jpeg" />
+    <img height="400" src="/src/Images/Blogs/FeastOfLambs01.jpeg" />
+    <img height="400" src="/src/Images/Blogs/FeastOfLambs02.jpeg" />
     <p>Jedidah sharing the word at marriage feast of the Lamb 2024/5785 with the family under the succah</p>
-    <video height="200" controls="controls">
-        <source src="~/Content/Videos/FeastOfLamb01.mp4" type="video/mp4" />
+   <!--  <video height="200" controls="controls">
+        <source src="/src/Videos/FeastOfLamb01.mp4" type="video/mp4" />
     </video> </br>
     <video height="200" controls="controls">
-        <source src="~/Content/Videos/FeastOfLamb02.mp4" type="video/mp4" />
+        <source src="/src/Videos/FeastOfLamb02.mp4" type="video/mp4" />
     </video></br>
     <video height="200" controls="controls">
-        <source src="~/Content/Videos/FeastOfLamb03.mp4" type="video/mp4" />
+        <source src="/src/Videos/FeastOfLamb03.mp4" type="video/mp4" />
     </video>
     <video height="200" controls="controls">
-        <source src="~/Content/Videos/FeastOfLamb04.mp4" type="video/mp4" />
-    </video>
+        <source src="/src/Videos/FeastOfLamb04.mp4" type="video/mp4" />
+    </video> -->
     <p>Our toddlers all excited dressed in pure white linens the righteous acts of the saints ready for the marriage feast of the Lamb , they have made themselves ready no spot no wrinkle no blemish .. GLORY TO GOD AND THE MULTITUDE IN HEAVEN SANG OUT ALLELUJIAH ALL HONOUR AND GLORY ABD POWER BE UNTO THE LORD GOD OMNIPOTENT</p>
-    <img height="400" src="~/Content/Images/Blogs/FeastOfLambs03.jpeg" />
+    <img height="400" src="/src/Images/Blogs/FeastOfLambs03.jpeg" />
     <p>
         Leviticus 23 is the chapter where God introduces to Moses and His nation gathered at mt Sinai the seven feasts of the Lord to be celebrated annually by Gods people as a prophetic enactment of Gods redemption story for all the earth. Each year the Lord called for us all those born into the lineage of Abraham and those grafted into through faith in the work of Jesus our saviour and redeemer. It is not recorded in scripture clearly when Jesus was born in Bethlehem of Judea 5 miles from Jerusalem, but Caesar Augustus most likely used this last feast of the Lord celebration as a time to take the census since the harvests would be gathered in and the people would be in joyful celebration. The weather would be warm sunny and dry before the winter rains and travel to everyone’s home town would be feasible.  Mary and Joseph both of Kibg David’s lineage were required to travel from Nazareth in the Galilee up to the mountains of Judea to the city of Bethlehem which means the House  of Bread.  Jesus is the bread of life and we break bread daily in remembrance of Him by whose blood shed from the stripes on his back heals our bodies souls and spirits as the bruising on his body take away our iniquities and the wounds and piecing of His Body from which His precious blood cleanses us from all sin and sickness making us pure and free from guilt shame sickness or poverty.
         This harvest celebration lasts seven days culminating in the Marrisge Feast of the Lamb. Then on the eighth day the day of Simchatorah when we dance and celebrate with our arms lifting high the Torah ( the Word of God) and the first born son representing Jesus who is the Word of God.
     </p>
-    <video height="400" controls="controls">
-        <source src="~/Content/Videos/FeastOfLamb05.mp4" type="video/mp4" />
+  <!--   <video height="400" controls="controls">
+        <source src="/src/Videos/FeastOfLamb05.mp4" type="video/mp4" />
     </video>
-
+ -->
 
 
 
@@ -82,7 +127,7 @@
     <h2>The last night if Succot</h2>
     <h5>October 26 2024</h5>
     <p>Jedidah sharing word if God with the family at last night if Succot under the succah in 2024</p>
-    <img height="400" src="~/Content/Images/Blogs/Sucott.jpg" />
+    <img height="400" src="/src/Images/Blogs/Sucott.jpg" />
 
 
     <hr />
@@ -91,9 +136,9 @@
     <p>
         Tonight the night of John 7 when Jesus said I am the living water and drink from me sand you will never thirst again..James and Samuel arrived two days ago from Jerusalem each with a gift from God to worship with the harp.
     </p>
-    <video height="400" controls="controls">
-        <source src="~/Content/Videos/HARP.mp4" type="video/mp4" />
-    </video>
+<!--     <video height="400" controls="controls">
+        <source src="/src/Videos/HARP.mp4" type="video/mp4" />
+    </video> -->
     <hr />
     <h2>Blowing of the Shofars</h2>
     <h5>October 22 2024</h5>
@@ -105,13 +150,13 @@
     <p>The electricity was totally out until we prayed the thanksgiving prayer for communion almighty God we thank you for feeding us with the Body and the Blood of your dear Son Jesus Christ through whom and in whom we have our being to live and to work in your power and glory forever and ever Amen</p>
     <p>Blood of Christ that makes us cleaner than snow.</p>
 
-    <video height="400" controls="controls">
-        <source src="~/Content/Videos/BlowingTrumpets.mp4" type="video/mp4" />
+<!--     <video height="400" controls="controls">
+        <source src="/src/Videos/BlowingTrumpets.mp4" type="video/mp4" />
     </video>
     <video height="400" controls="controls">
-        <source src="~/Content/Videos/BlowingTrumpets2.mp4" type="video/mp4" />
+        <source src="/src/Videos/BlowingTrumpets2.mp4" type="video/mp4" />
     </video>
-
+ -->
 
 
 
@@ -120,21 +165,21 @@
     <h5>August 10 2024</h5>
     <p>Mishael with concert pianist Ethan following annual spring dance concert</p>
 
-    <img height="400" src="~/Content/Images/Blogs/MishealConcert.jpeg" />
+    <img height="400" src="/src/Images/Blogs/MishealConcert.jpeg" />
 
     <p>Samuel the dance worshipper and teacher with proud Auntie Elizabeth and solo star of Spring ballet concert MISHAEL ABRAHAM in Mbabane</p>
-    <img height="400" src="~/Content/Images/Blogs/MishealSamuelConcert.jpeg" />
+    <img height="400" src="/src/Images/Blogs/MishealSamuelConcert.jpeg" />
     <p>Misheal Abraham Solo Dance</p>
-    <video height="400" controls="controls">
-        <source src="~/Content/Videos/MishelConcertSolo.mp4" type="video/mp4" />
+<!--     <video height="400" controls="controls">
+        <source src="/src/Videos/MishelConcertSolo.mp4" type="video/mp4" />
     </video>
-
+ -->
 
     <hr />
     <h2>School Trip and Short Ride on a Horse in Mlilwaney</h2>
     <h5>August 7 2024</h5>
     <p>Mlilwane Wildlife Sanctuary is in the Ezulwini Valley of central Eswatini, south of the city of Mbabane. Today we visited on a preschool trip and short ride on horse in Mlilwane game reserve. Here is Sakani Abraham aged three </p>
-    <img height="400" src="~/Content/Images/Blogs/SakaniHorse.jpeg" />
+    <img height="400" src="/src/Images/Blogs/SakaniHorse.jpeg" />
 
 
 
@@ -156,7 +201,7 @@
     <p>        Sunday August 14 Foxfire ministered with dance, skits, testimonies and an amazing preaching by Foxfire team leader Pastor Zweli using Judges 5 the Gideon story with two key points:  disobedience brings disaster as Gideon described his position and national condition while humble acceptance of who God says you are, leads to his second point, Obedience brings Deliverance, Liberty and Eternal Life in your individual life and in the Life of the nation.</p>
 
     <p>        In this next week EmaSwati celebrate Independence Day from British Protectorate and King Sobhuza II discontinued as Paramount Chief working with a British Government and began to rule and reign as Head of State of the Kingdom of Eswatini. He lifted up the UMCULU on that day and declared “This will be our constitution” and His Majesty pledged “to walk in the footsteps of Jesus”.  Its time to greatly rejoice, God has been faithful to keep us as a nation and as a member among the nations. Can we take up the message of Judges 5:  Can we choose disobedience and enter disaster or can we choose to obey God’s ways and enjoy deliverance, liberty and Life as long as there is life on earth.</p>
-    <img height="400" src="~/Content/Images/Blogs/IMG-20230902-WA0003.jpg" />
+    <img height="400" src="/src/Images/Blogs/IMG-20230902-WA0003.jpg" />
 
     <hr />
 
@@ -170,7 +215,7 @@
     <h2>Anniversary of the Timber House</h2>
     <h5>September 1 2023</h5>
     <p>September 1 is the 20th anniversary of the set of our first NHC children who moved into the timber house provided by God through Hope for the Nations in Kelowna Canada a city today being burned by horrific forest fires. Those three children were Anna, Debrah and Joel. September 1 2023 we are celebrating 20 years since their arrival and celebrating three  university graduates and one fully qualified commercial pilot: Anna graduated from university of Eswatini with LLB law and is seeking a place to complete her articles; Debrah has her bachelor in theology from Swaziland college of theology ( formerly International Assemblies of God college ) she is in Israel serving as Intercessor and harpist worshipper song writer and poetry writer in Jerusalem and Eilat, Israel ; Joel with private pilot license, drone license and Commercial pilot license and is now ready for his first employment flying planes and drones; Phillippa although she arrived in NHC a little later has her bachelors degree in psychology and is applying to go forward with honours  degree and masters degree to be licensed as a child psychologist with a passion to transform the development and potential of children in the meantime she is serving as Hope Academy Administrator and doing wonders in leadership.  So we are celebrating all of this with thanksgiving and praise on September 1, the 20th anniversary.  It would be wonderful to invite all of you who love Eswatini who believe that orphans are tomorrows leaders to join us in person but since it is a great distance we invite you to send cards by airmail or email or Facebook to these wonderful young leaders or send gifts through NHC Inc so we can purchase gifts for each one of the graduates and gifts to fund a great dinner with friends and family</p>
-    <img height="400" src="~/Content/Images/nhc-side.jpg" />
+    <img height="400" src="/src/Images/nhc-side.jpg" />
 
     <hr />
     <h2>I am a Benjamin</h2>
@@ -180,7 +225,7 @@
 
     </p>
     <p>While we are talking about eyes and glasses we want to thank all those who have from time to time given us their used glasses. Please never throw away glasses that you no longer need or use, rather send to our treasurer John in Dayton Ohio if you are in USA and when someone travels he will be able to give to them to bring in their luggage.  School kids and grannies snd grandpas lives can be transformed by this small thoughtful gesture.  If you are in Australia  send to our sponsor coordinator Allana . Much thsnks and blessings NHc family</p>
-    <img height="400" src="~/Content/Images/Blogs/IMG-20231002-WA0005.jpg" />
+    <img height="400" src="/src/Images/Blogs/IMG-20231002-WA0005.jpg" />
 
 
     <hr />
@@ -190,7 +235,7 @@
         John arrived back from USA. Before Yom Kippur ended with sunset he was on African soil thanks to United Airlibes and many many kind people.  John was in USA for the past nine months as he volunteered to care for Mac McKinney tje widower of our former cofounder and director June McKinney, who was struggling with life management at age 85.  Now Mac is being cared for by four caregivers from an agency and John arrived hone ar NHC Tuesday AFTERNOON AROUND 3 pm 26 th October2023 after many growth n maturation experiences gif which we are eternally grateful and celebrate Gods faithfulness through the supernatural and through the kindness and generosity of his sponsors, our usa treasurer, our friends and family in Jacksonville Florida and all who have been praying him through this gestation period.  It seems God  used 9 months of gestation to bring forth a kingly announting in and upon His Beloved Son.
 
     </p>
-    <img height="400" src="~/Content/Images/Blogs/IMG-20231002-WA0001.jpg" />
+    <img height="400" src="/src/Images/Blogs/IMG-20231002-WA0001.jpg" />
 
 
 
@@ -215,31 +260,31 @@
         Friday night they led a lively and meaning ministry at service in the White Tent at Apostle Thokozani dlamini at Bethany and many braved the cold night air by the Lusushwana river.  Saturday was an amazing day with 60 or so youth from our community joining Foxfire for a Life Skills day using the multi sports court given to us by YKK the Japanese zipper factory in Matsapha, god blessed us with three gloriously warm sunny days and today august 14 Foxfire ministered with dance, skits, testimonies and an amazing preaching using Judges 5 the Gideon story with two key points:  disobedience brings disaster as Gideon described his position and national condition while humble acceptance of who God says you are leads to his second point Obedience brings Liberty, Deliverance and Eternal Life in your individual life and in the Life of the nation.
         They have a long drive back home but we are truly thankful they visited us and we saw and experienced revival through Jedidah and her team of 7 Foxfire’s, the team coordinator, and team leader Zweli.
     </p>
-    <img height="400" src="~/Content/Images/Blogs/IMG-20230820-WA0002.jpg" /></br>
-    <img height="400" src="~/Content/Images/Blogs/IMG-20230820-WA0006.jpg" />
+    <img height="400" src="/src/Images/Blogs/IMG-20230820-WA0002.jpg" /></br>
+    <img height="400" src="/src/Images/Blogs/IMG-20230820-WA0006.jpg" />
 
 
     <hr />
     <h2>Prayers for Michael Cassidy</h2>
     <h5>July 11 2023</h5>
     <p>Jedidah is praying for Michael Cassidy, founder of Africa Enterprise Ministries</p>
-    <img height="400" src="~/Content/Images/Blogs/IMG-20230711-WA0000.jpg" />
+    <img height="400" src="/src/Images/Blogs/IMG-20230711-WA0000.jpg" />
 
     <hr />
     <h2>Farewell For Ms Joy</h2>
     <h5>June 18 2023</h5>
-    <img height="400" src="~/Content/Images/Blogs/IMG-20230624-WA0009.jpg" />
+    <img height="400" src="/src/Images/Blogs/IMG-20230624-WA0009.jpg" />
 
 
     <hr />
     <h2>Fathers Day</h2>
     <h5>June 18 2023</h5>
 
-    <img height="400" src="~/Content/Images/Blogs/IMG-20230624-WA0008.jpg" />
+    <img height="400" src="/src/Images/Blogs/IMG-20230624-WA0008.jpg" />
     <p>Pastor David Chaliyumba, our pastor at Destiny International Christian Church </p>
-    <video height="400" controls="controls">
-        <source src="~/Content/Videos/VID-20230624-WA0002.mp4" type="video/mp4" />
-    </video>
+  <!--   <video height="400" controls="controls">
+        <source src="/src/Videos/VID-20230624-WA0002.mp4" type="video/mp4" />
+    </video> -->
 
     <hr />
     <h2>Flying Kites - Ascension  Day</h2>
@@ -247,48 +292,48 @@
     <p>Ms Joy, Hannaniah and Auntie Annie flying kites with the children. Ascension  day is a national public holiday in Swazilane (Eswawtini), to wonder and ponder the rapture of Jesus and His return. </p>
     <p>We Had a great day celebrating Ascension Day and had magnificent sunshine as we ascended Mt Njingo the highest mountain in Manzini area. My body muscles did not appreciate the unusual toll of climbing down… going up was fine but it still it was a glorious day with magnificent blue skies and brilliant white whisky clouds.  Perfect for flying kits, watching the sky as the disciples did from my olives where Jesus was raptured and anticipating him once more appearing in the clouds and collecting all of His own in similar supernatural ascension into the heavenlies</p>
     <p>Let’s go fly a kite, up to the highest heights. Let’s go fly a kite and see it soaring up through the atmosphere, up where the air is clear. Let’s go fly a kite.   </p>
-    <img height="400" src="~/Content/Images/Blogs/FlyingKites.jpg" />
-    <img height="400" src="~/Content/Images/Blogs/IMG-20230519-WA0003.jpg" />
-    <img height="400" src="~/Content/Images/Blogs/IMG-20230519-WA0004.jpg" />
-    <img height="400" src="~/Content/Images/Blogs/IMG-20230519-WA0010.jpg" />
-    <img height="400" src="~/Content/Images/Blogs/IMG-20230519-WA0000.jpg" />
+    <img height="400" src="/src/Images/Blogs/FlyingKites.jpg" />
+    <img height="400" src="/src/Images/Blogs/IMG-20230519-WA0003.jpg" />
+    <img height="400" src="/src/Images/Blogs/IMG-20230519-WA0004.jpg" />
+    <img height="400" src="/src/Images/Blogs/IMG-20230519-WA0010.jpg" />
+    <img height="400" src="/src/Images/Blogs/IMG-20230519-WA0000.jpg" />
 
     <hr />
     <h2>Phillippa Graduate</h2>
     <h5>May 4 2023</h5>
     <p>Phillippa graduates in Johannesburg, with a Bachelor of Arts in psychology   </p>
-    <img height="400" src="~/Content/Images/Blogs/PhillippaGraduation.jpg" />
-    <img height="400" src="~/Content/Images/Blogs/PhillippaGraduate2.jpg" />
+    <img height="400" src="/src/Images/Blogs/PhillippaGraduation.jpg" />
+    <img height="400" src="/src/Images/Blogs/PhillippaGraduate2.jpg" />
 
 
     <hr />
     <h2>First swim gala for 2023</h2>
     <h5>February 2023</h5>
     <p>We praise Gid for the Eswstini swim association sponsoring us for two one hour swim lessons per week at Mavuso trade fair in manzini.  We have 16 teenagers and children in swim lessons starting with teo year old sakani then Hepzibah and nehemish are the senior advanced swimmers and Apphia just behind them hopefully she will join the next swim gala. We need help with paying the swim coach for lessons so if anyone knows where to find supporters for swim lessons we will be delighted!</p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG-20230205-WA0000.jpg" />
+    <img height="400px" src="/src/Images/Blogs/IMG-20230205-WA0000.jpg" />
 
 
     <hr />
     <h2>A Weddeing at Bethany Mountain</h2>
     <h5>Saturday December 17, 2022</h5>
     <p>Husband and wife Babe Bongani Masilela and Mrs Nelsiwe Masilela Saturday December 17, 2022. At new hope centre Bethany Mountain, our former big boys caregiver was married at our tabernacle of Praise.</p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG-20221220-WA0006.jpg" />
-    <img height="400px" src="~/Content/Images/Blogs/IMG-20221220-WA0004.jpg" />
+    <img height="400px" src="/src/Images/Blogs/IMG-20221220-WA0006.jpg" />
+    <img height="400px" src="/src/Images/Blogs/IMG-20221220-WA0004.jpg" />
 
 
     <hr />
     <h2>Birth of a baby calf</h2>
     <h5>December 20, 2022</h5>
     <p>Praise God of Winters baby calf born last week and doing well with his mother,  his name is Emaculate so we call him “Emac”</p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG-20221220-WA0001.jpg" />
+    <img height="400px" src="/src/Images/Blogs/IMG-20221220-WA0001.jpg" />
 
     <hr />
     <h2>Thanksgiving Celebration</h2>
     <h5>October 22, 2022</h5>
     <p>A day of thanksgiving and celebration between <b>YKK</b> and New Hope Centre. The Japanese zipper manufacturer YKK visited New Hope Centre for a day of celebration. YKK have kindly given New Hope Centre a multipupose sports course for basketball, tennis and volleyball, six-a-side soccer and net ball. The initially gave us the court in 2019, but then COVID shut things down. It is now open for use to share with Bethany mission school and the children of our community</p>
-    <video controls="controls">
-        <source src="~/Content/Videos/VID-20221023-WA0018.mp4" type="video/mp4" />
-    </video>
+<!--     <video controls="controls">
+        <source src="/src/Videos/VID-20221023-WA0018.mp4" type="video/mp4" />
+    </video> -->
 
 
 
@@ -302,18 +347,18 @@
     <h2>Creative Expression</h2>
     <h5>September 2021</h5>
     <p>Miriam displaying her creative fashion design as she made her formal gown and water colour expression of her inner radiant self.</p>
-    <img src="~/Content/Images/Blogs/Miriam_01.jpg" />">
+    <img src="/src/Images/Blogs/Miriam_01.jpg" />">
     <hr />
     <h2>Transformed Storage Container</h2>
     <p>The storage container from Canada got a creative facelift and has a touch from everyone!</p>
     <h5>September 2021</h5>
-    <img src="~/Content/Images/Blogs/Storage_Container.jpg" />
+    <img src="/src/Images/Blogs/Storage_Container.jpg" />
 
     <hr />
     <h2>Miriam's Graduation </h2>
     <h5>Friday 4 th June 2021</h5>
-    <img height="400px" src="~/Content/Images/Blogs/MyriamGrad_01.JPG" />
-    <img height="400px" src="~/Content/Images/Blogs/MyriamGrad_02.JPG" />
+    <img height="400px" src="/src/Images/Blogs/MyriamGrad_01.JPG" />
+    <img height="400px" src="/src/Images/Blogs/MyriamGrad_02.JPG" />
 
 
 
@@ -321,7 +366,7 @@
     <h2>International Student Convention 2021</h2>
     <h5>May 17  2021</h5>
     <p>Sunday morning May 17 we arrived in USA for a dream come true snd many hours of training and preparation.  This photo is the border post at mama shah crossing between the border of Eswatini since our countries were neighbors and on same covid code mauling it possible for us to reach the USA. We had left Bethany at 6:30 yo take the shuttle to mozabigue </p>
-    <img src="~/Content/Images/Blogs/STudentConvention2021_01.jpg" />
+    <img src="/src/Images/Blogs/STudentConvention2021_01.jpg" />
 
 
 
@@ -334,9 +379,9 @@
         After months and even years of training Ethan had won a nomination for piano solo to represent at the All African Student Conference during October 2021. He had studied music practicing every day. Here is Ethan, somewhat exhausted after driving 4 hours to Mozambique then after 28 flying hours. We thank Lisa Crouse and Whitney hosting Ethan Abraham and Dr Elizabeth hynd
 
     </p>
-    <img height="400px" src="~/Content/Images/Blogs/EthanUSA.jpg" />
-    <img height="400px" src="~/Content/Images/Blogs/EthanUSA_02.jpg" />
-    <img height="400px" src="~/Content/Images/Blogs/EthanUSA_03.jpg" />
+    <img height="400px" src="/src/Images/Blogs/EthanUSA.jpg" />
+    <img height="400px" src="/src/Images/Blogs/EthanUSA_02.jpg" />
+    <img height="400px" src="/src/Images/Blogs/EthanUSA_03.jpg" />
 
 
     <hr />
@@ -368,18 +413,18 @@
     <p>
         Christmas night we were blessed with tons of soaking doggy rain without the drama of lightening thunder hail or power outages hallelujah.  So we awoke to a beautiful clean world of gentle yellow sunshine on Christmas morning,  we jumped into the Toyota quantum a gift from Brandon in  Missouri USA two years ago and the Isuzu van a gift from the Fungs in  Hong Kong 17 years ago as well as auntie Annie snd auntie Elizabeth’s cars, to attend a sweet gentle service of adoration of our beloved Lord Jedus at the Swaziland college of Theology where Debrah is a fourth year baccalaureate student in Theology.  Right after the two services (social distancing snd masks) auntie drive Debrah to Manzini as she was preaching live on national voice of the a church Radio for a radical message challenging us all to have our hearts ready for Christ’s return as Simeon and Anna were ready snd in tune to meet the Saviour in the temple in his 8 th Day circumcision snd dedication and not to find ourselves asleep as were the citizens of Bethlehem or fibd our hearts cold and dark like king Herod on the night of all nights on earth when the Son of God was born in human flesh and the angels in the heavens announced PEACE ON EARTH GOODWILL TO ALL MEN FOR UNTO US A BABY IS BORN, SON IS GIVEN, THE SAVIOUR JESUS CHRIST EMANUEL (God with us).
     </p>
-    <video height="400px" controls="controls">
-        <source src="~/Content/Images/Blogs/Christmas_03.MP4" type="video/mp4" />
+<!--     <video height="400px" controls="controls">
+        <source src="/src/Images/Blogs/Christmas_03.MP4" type="video/mp4" />
     </video>
     <video height="400px" controls="controls">
-        <source src="~/Content/Images/Blogs/Christmas_02.MP4" type="video/mp4" />
-    </video>
+        <source src="/src/Images/Blogs/Christmas_02.MP4" type="video/mp4" />
+    </video> -->
     </br>
-    <img height="400px" src="~/Content/Images/Blogs/Christmas_01.jpg" />
-    <img height="400px" src="~/Content/Images/Blogs/Christmas_02.jpg" />
-    <img height="400px" src="~/Content/Images/Blogs/Christmas_04.jpg" />
-    <img height="400px" src="~/Content/Images/Blogs/Christmas_05.jpg" />
-    <img height="400px" src="~/Content/Images/Blogs/Christmas_06.jpg" />
+    <img height="400px" src="/src/Images/Blogs/Christmas_01.jpg" />
+    <img height="400px" src="/src/Images/Blogs/Christmas_02.jpg" />
+    <img height="400px" src="/src/Images/Blogs/Christmas_04.jpg" />
+    <img height="400px" src="/src/Images/Blogs/Christmas_05.jpg" />
+    <img height="400px" src="/src/Images/Blogs/Christmas_06.jpg" />
 
     <p>
         MERRY CHRISTMAS EVERYONE AND A BLESSED GRACE FILLED 2021
@@ -389,19 +434,19 @@
     <h2>Creative Shoulder Bags from Waste Packaging</h2>
     <h5>2020</h5>
     <p>A favourite activity, making shoulder bags from waste materials</p>
-    <img src="~/Content/Images/Blogs/ShoulderBags.jpg" />
-    <img src="~/Content/Images/Blogs/ShoulderBagsCat.jpg" />
+    <img src="/src/Images/Blogs/ShoulderBags.jpg" />
+    <img src="/src/Images/Blogs/ShoulderBagsCat.jpg" />
     <hr />
     <h2>Art Exhibition</h2>
     <h5>2020</h5>
     <p>A farewell team photo at the end of the Art Exhibition</p>
-    <img src="~/Content/Images/Blogs/ArtExhibition.jpg" />
+    <img src="/src/Images/Blogs/ArtExhibition.jpg" />
     <hr />
     <h2>A Fond Farewell to Sandy</h2>
     <h5>2020</h5>
     <p>Caleb Abraham thanks Sandy in a farewell celebration. Sandy, who came to us from Taiwan,  has been our Hope Academy art teacher. What a creative and beautiful, courageous young lady, truly and honour to have had her with us.  </p>
 
-    <img src="~/Content/Images/Blogs/SandyFarewell.jpg" />
+    <img src="/src/Images/Blogs/SandyFarewell.jpg" />
 
 
 
@@ -410,13 +455,13 @@
     <h5>Sunday 19 April 2020</h5>
     <p>We are all alive n well and praise God for a splendid day and a chance to worship him in the splendor of nature when roadblocks make it a challenge to move our family to church </p>
     <p>Today is a splendid day as we gathered in the mountain for outside church service.  Roadblocks have made it a challenge to get to church as a family so we gathered together n our pastor joined us for the word of God from Ezekiel 37:  son of man can these dry bones live? Asks God.  He asks us each to asses our situation the seek him for His Word to cause the situation or circumstance to move forward into Gods good and perfect will.  So God have Ezekiel the words and he spoke to the dry bones in the valley,  the bones came to life at the sound of the words spoken by Ezekiel and they came together and an army strong and mighty rose up,  so it is if we will capture Gods thoughts orHis Words and speak them into being do we will determine the making of our lives and our future as individuals and as nations</p>
-    <img src="~/Content/Images/Blogs/SundayApril2020.jpg" />
-    <img src="~/Content/Images/Blogs/SundayApril2020_02.jpg" />
+    <img src="/src/Images/Blogs/SundayApril2020.jpg" />
+    <img src="/src/Images/Blogs/SundayApril2020_02.jpg" />
     <hr />
     <h2>Daniel Fasting</h2>
     <h5>April 2020</h5>
     <p>21 day Daniel fast during covid 19 lockdown in Eswatini as we have met on the seventh day for three weeks.  Sis Ngeti our senior caregiver in the mainhouse and a few others have been praying for Israel for the Church and for our nation during this lockdown.  Currently 21 have been diagnosed in the country and one man has succumbed and passed away.  We are now in the second 21 day lockdown.  We believe this is a wake up call for everyone to evaluate our lives, our priorities, our relationship with God and our relatives, friends and neighbors.  May God bring a wave of new life in this season </p>
-    <img src="~/Content/Images/Blogs/DanielFasting.jpg" />
+    <img src="/src/Images/Blogs/DanielFasting.jpg" />
     <hr />
 
 
@@ -429,14 +474,14 @@
         Pentecost 2020 celebration on Bethany mountain outside in the cold night air, temperatures around 7-8degrees Celsius with cloudless clear skies.
         We have been studying Isaiah 11:2-3 as preparation for Pentecost concerning these seven spirits of God: the spirit of wisdom and understanding, the spirit of counsel and might, the spirit of knowledge and the fear(awe) of the Lord, the spirit of Christ that were seen by the apostle John in Revelations 4:5 and before the throne seven lamps were burning which are the seven spirits of God. So we had huge gas burners giving the concept of the seven flames before the throne of God
     </p>
-    <img src="~/Content/Images/Blogs/TaiwanEmbassy.jpg" />
+    <img src="/src/Images/Blogs/TaiwanEmbassy.jpg" />
     <hr />
     <p>Jemimah leasing as master of ceremonies with Ethan and she opened the evening with the scripture in Genesis 1:2 “the earth was empty and both out void and darkness covered the deep and the Spirit of God was over the face of the waters”</p>
-    <img src="~/Content/Images/Blogs/Pentacost_01.jpg" />
+    <img src="/src/Images/Blogs/Pentacost_01.jpg" />
     <p>Priscillas dances for Pentecost</p>
-    <img src="~/Content/Images/Blogs/Pentacost_05.jpg" />
+    <img src="/src/Images/Blogs/Pentacost_05.jpg" />
     <p>James has painted a dove representing the Holy Spirit of God who descended like a dove from heaven upon a Jesus of Nazareth as He came up out of the river Jordannupon being baptized in water by his cousin John the Baptist</p>
-    <img src="~/Content/Images/Blogs/Pentacost_04.jpg" />
+    <img src="/src/Images/Blogs/Pentacost_04.jpg" />
     <hr />
 
     .
@@ -444,33 +489,33 @@
     <h2>Palm Sunday </h2>
     <h5>April 5, 2020</h5>
     <p>We celebrated at home as the lockdown forbid more than two people in a vehicle.  Pastor Chaliyumba of Destiny International Church came and shared the Word if God then we took flags and guitars and marched in praise around our entire campus in joyous celebration </p>
-    <img height="400px" src="~/Content/Images/Blogs/PalmSunday_01.jpg" />
-    <img height="400px" src="~/Content/Images/Blogs/PalmSunday_02.jpg" />
-    <img height="400px" src="~/Content/Images/Blogs/PalmSunday_03.jpg" />
+    <img height="400px" src="/src/Images/Blogs/PalmSunday_01.jpg" />
+    <img height="400px" src="/src/Images/Blogs/PalmSunday_02.jpg" />
+    <img height="400px" src="/src/Images/Blogs/PalmSunday_03.jpg" />
 
 
     <hr />
     <h2>Preparations for Holy Week included two French speaking expatriate ladies coming to give an unexpected blessing of food and cleaning supplies</h2>
-    <img height="400px" src="~/Content/Images/Blogs/PrepHolyWeek_01.jpg" />
+    <img height="400px" src="/src/Images/Blogs/PrepHolyWeek_01.jpg" />
 
-    <img height="400px" src="~/Content/Images/Blogs/PrepHolyWeek_02.jpg" />
+    <img height="400px" src="/src/Images/Blogs/PrepHolyWeek_02.jpg" />
 
 
 
     <h2>Taiwan Embassy Visit</h2>
     <h5>2020</h5>
     <p>Representative from Taiwan embassy speaking delight and encouragement to the Abraham family (Apphia is serving as translator).</p>
-    <img src="~/Content/Images/Blogs/TaiwanEmbassy.jpg" />
+    <img src="/src/Images/Blogs/TaiwanEmbassy.jpg" />
     <hr />
 
 
     <hr />
     <h2>Christmas luncheon with Abraham young adults Sunday 22december 2019</h2>
 
-    <img height="300px" src="~/Content/Images/Blogs/Christmas_19_01.jpg" />
-    <img height="300px" src="~/Content/Images/Blogs/Christmas_19_02.jpg" />
-    <img height="300px" src="~/Content/Images/Blogs/Christmas_19_03.jpg" />
-    <img height="300px" src="~/Content/Images/Blogs/Christmas_19_04.jpg" />
+    <img height="300px" src="/src/Images/Blogs/Christmas_19_01.jpg" />
+    <img height="300px" src="/src/Images/Blogs/Christmas_19_02.jpg" />
+    <img height="300px" src="/src/Images/Blogs/Christmas_19_03.jpg" />
+    <img height="300px" src="/src/Images/Blogs/Christmas_19_04.jpg" />
 
 
 
@@ -478,11 +523,11 @@
     <h2>RFM Hospital Childrens Ward in Manzini</h2>
     <h5>18 December, 2019 </h5>
     <p>The Abraham family have been preparing to share the a Christmas story for the past few weeks as schools closed for the academic year.  We had graduations and awards then began preparing for the celebration of the birth of the King of the Universe, the babe in a manger, the Saviour, Counsellor, a Child was born whose kingdom will have no end.  Practicing, memorizing the script, working out the props and costumes all to be able to present the story to Children who need love and healing.  </p>
-    <img height="300px" src="~/Content/Images/Blogs/Christmas_19_05.jpg" />
-    <img height="300px" src="~/Content/Images/Blogs/Christmas_19_06.jpg" />
-    <img height="300px" src="~/Content/Images/Blogs/Christmas_19_07.jpg" />
-    <img height="300px" src="~/Content/Images/Blogs/Christmas_19_08.jpg" />
-    <img height="300px" src="~/Content/Images/Blogs/Christmas_19_09.jpg" />
+    <img height="300px" src="/src/Images/Blogs/Christmas_19_05.jpg" />
+    <img height="300px" src="/src/Images/Blogs/Christmas_19_06.jpg" />
+    <img height="300px" src="/src/Images/Blogs/Christmas_19_07.jpg" />
+    <img height="300px" src="/src/Images/Blogs/Christmas_19_08.jpg" />
+    <img height="300px" src="/src/Images/Blogs/Christmas_19_09.jpg" />
     <h2>CELEBRATING GOOD FRIDAY</h2>
     <h5>23-April-2019</h5>
     <p>Good Friday we spent fasting from 9 am to 3 pm as we watched the video of Mel Gibson’s movie The Passion.  We stopped at each of the seven Wounds of Christ where he bled from his head in great drops of blood and sweat to deliver us from stress and the yielding of our flesh to the will of God.  Then his beard was plucked and his face beaten and bruised for our deliverance from guilt and shame; then his back beaten into furrows with 39 stripes for the healing and health of our bodies; the crown of thorns pounded into his head for the redemption of our souls that we can take captive every thought of negativity and destruction and establish thoughts of the hood and perfect will of God concerning us; his nail pierced hands transforming our ability to bless everything we touch to prosper in everything we do and to release the power of healing when we lay hands and pray for the sick; the nsilpierced feet to enable us to be carriers of peace and shalom, taking the territory for the goodness of the Kingdom of God which is joy peace and righteousness and finally his pierced side for the healing of our broken hearts and the exchange of our hardened hearts for a living sensitive loving heart of flesh.    </p>
@@ -490,31 +535,31 @@
         At 3pm we have hot tea and hot cross buns to break the fast then head up to the top of our mountain to pray for the Kingdom of Eswatin.
 
     </p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2857.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2857.jpg">
     <p>Holy Saturday we gathered under the”Lapha” and prayed together before heading out in two groups to visit each of the 15 stations of the cross giving ourselves the whole morning to stop and ponder and meditate on the meaning of our lives today in reflection of what Jesus was accomplishing through his arrest, trial, crucifixion, burial and resurrection. </p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2860.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2860.jpg">
     <p>Jedidah led the way: here is a Jesus being condemned falsely to death </p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2865.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2865.jpg">
     <p>Hananiah leading us in station 2 </p>
 
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2868.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2868.jpg">
     <p>Tirzah leading in at the station between the tabernacle and preschool</p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2870.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2870.jpg">
     <p>Miriam leading us under the solar water pump</p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2880.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2880.jpg">
     <p>Mishael leading us below the cowshed</p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2880.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2880.jpg">
     <p>Mishael leading us below the cowshed</p>
 
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2882.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2882.jpg">
     <p>Priscilla leading us beside the main house where the young children live</p>
 
 
 
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2885.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2885.jpg">
     <p>    Azariah leading us below Hope Academy</p>
 
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2886.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2886.jpg">
     <p>Jedidah leading us in the joyous 15 th station where the tomb is empty and Zhesus is alive having triumphed over evil, death and the grave.  Halelujah </p>
 
 
@@ -523,25 +568,44 @@
     <h2>Passover Seder 2020</h2>
     <h5>23-April-2019</h5>
     <p>Many of our young adults have returned home for the lockdown and do we’re here to join the festivities </p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2842.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2842.jpg">
     <p>Debrah leading the entire Seder supper</p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2844.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2844.jpg">
     <p>Tirzah lighting the Shabat candles </p>
 
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2846.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2846.jpg">
     <p>Noah blessing the home as the father of the house would bless his family </p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2827.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2827.jpg">
     <p>
         All the food prepared for the Passover Seder supper though we could not find lamb in the country as 2020 is a different year
     </p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2830.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2830.jpg">
     <p>The banner of the lamb of God sacrifices for all peoples who will see hear and believe. The passage decorated by our Taiwsn art teachers and children as a symbol of passing through dry land in the Red Sea. </p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2831.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2831.jpg">
     <p>Passover is a joyous and happy time as we celebrate liberty deliverance obedience and trust in the Word of Almighty God Jehovah </p>
-    <img height="400px" src="~/Content/Images/Blogs/IMG_2836.jpg">
+    <img height="400px" src="/src/Images/Blogs/IMG_2836.jpg">
     <p>
         Everyone gathering excitedly to enter the special Passover dinner celebrated only once a year, a dinner like no other when we eat married  charoseth, hard boiled eggs, unleavened bread, lamb and wine       ( grape juice)
     </p>
 </div>
 
 
+</div>
+</body>
+    <script>
+        includeHTML();
+        $(function () {
+            $('.pop').on('click', function () {
+                var imgsrc = $(this).find('img').attr('src');
+                $('#imagepreview').attr('src', imgsrc);
+                var imgVal = $(this).find('img').attr('data-val');
+                $('#modaldata').html(imgVal);
+
+
+                $('#imagemodal').modal('show');
+            });
+        });
+    </script>
+
+
+</html>
